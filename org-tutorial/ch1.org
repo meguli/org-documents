@@ -24,18 +24,19 @@ This in turn, set the title of the document. Names the author as yours
 truly and sets the document language as English. The next header options
 customize the HTML output. They are as follows
 
-#+BEGIN_SRC 
-#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline path:../org-info.js
+#+BEGIN_EXAMPLE 
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
 #+LINK_HOME: http://burakkaancopur.info
 #+LINK_UP: http://burakkaancopur.info
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css" />
-#+END_SRC
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
+#+END_EXAMPLE
 
 Before explaining what each of them does, let me talk about the directory
 structure of my work environment. I have a top-level folder like /~/org/.
 Here is what it looks like
 
-#+begin_fundamental
+#+begin_example
   |-- ~/org
   |   |-- ./orgcss
   |   |-- orginfo.js
@@ -43,7 +44,7 @@ Here is what it looks like
   |   |-- ...
   |   |-- ...
   |   |-- a dir for each project
-#+end_fundamental
+#+end_example
 
 /orgcss/ directory contains the CSS files and relevant styling files I use
 for my documents. This is taken from [[https://github.com/gongzhitaao/orgcss][this page]]. In the header

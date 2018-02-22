@@ -1,0 +1,15 @@
+#+TITLE: Blog
+#+AUTHOR: Burak Kaan Çopur
+
+#+HTML_DOCTYPE: html5
+#+HTML_HEAD: <style type="text/css"> <!--/*--><![CDATA[/*><!--*/ .title { display: none; } /*]]>*/--> </style>
+
+#+INFOJS_OPT: view:showall toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
+#+HTML_MATHJAX: path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+
+#+INCLUDE: "masthead.html" export html
+
+[[file:2018/hello-blog.org][Hello, Blog!]]

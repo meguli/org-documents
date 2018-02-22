@@ -2,8 +2,8 @@
 #+AUTHOR:    Burak Kaan Copur
 #+LANGUAGE:  en
 
-#+OPTIONS: tex:t
-#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline path:../org-info.js
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
 #+LINK_HOME: http://burakkaancopur.info
 #+LINK_UP: http://burakkaancopur.info
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
@@ -19,5 +19,8 @@
 #+INCLUDE: ch2.org
 
 * Theorems and Proofs 
+
+#+INCLUDE: ch3.org
+
 * Publishing to Github Pages
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>How I Use Emacs org-mode</title>
-<!-- 2018-02-22 Thu 14:36 -->
+<!-- 2018-02-22 Thu 16:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Burak Kaan Copur" />
@@ -90,13 +90,13 @@
 </style>
 <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
 
-<script type="text/javascript" src="../org-info.js">
+<script type="text/javascript" src="http://orgmode.org/org-info.js">
 /**
  *
- * @source: ../org-info.js
+ * @source: http://orgmode.org/org-info.js
  *
  * @licstart  The following is the entire license notice for the
- *  JavaScript code in ../org-info.js.
+ *  JavaScript code in http://orgmode.org/org-info.js.
  *
  * Copyright (C) 2012-2013 Free Software Foundation, Inc.
  *
@@ -116,7 +116,7 @@
  * through which recipients can access the Corresponding Source.
  *
  * @licend  The above is the entire license notice
- * for the JavaScript code in ../org-info.js.
+ * for the JavaScript code in http://orgmode.org/org-info.js.
  *
  */
 </script>
@@ -305,10 +305,11 @@ customize the HTML output. They are as follows
 </p>
 
 <pre class="example">
-#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline path:../org-info.js
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
 #+LINK_HOME: http://burakkaancopur.info
 #+LINK_UP: http://burakkaancopur.info
-#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css" /&gt;
+#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../orgcss/org.css"/&gt;
 </pre>
 
 <p>
@@ -317,49 +318,15 @@ structure of my work environment. I have a top-level folder like <i>~/org</i>.
 Here is what it looks like
 </p>
 
-<div class="fundamental">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; ./orgcss</td>
-</tr>
-
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; orginfo.js</td>
-</tr>
-
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; ./org-tutorial</td>
-</tr>
-
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; &#x2026;</td>
-</tr>
-
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; &#x2026;</td>
-</tr>
-
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#x2013; a dir for each project</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+<pre class="example">
+|-- ~/org
+|   |-- ./orgcss
+|   |-- orginfo.js
+|   |-- ./org-tutorial
+|   |-- ...
+|   |-- ...
+|   |-- a dir for each project
+</pre>
 
 <p>
 <i>orgcss</i> directory contains the CSS files and relevant styling files I use
@@ -481,7 +448,8 @@ I use following header at <i>main.org</i> to achieve this.
 </p>
 
 <pre class="example">
-#+HTML_MATHJAX: align: center indent: 5em tagside: left font: Neo-Euler path: ../MathJax/MathJax.js?config=TeX-AMS_CHTML
+#+HTML_MATHJAX: path: &lt;path-to-MathJax-CDN&gt;
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
 </pre>
 
 <p>
@@ -541,9 +509,9 @@ Note that I can recall and refer to a past equation as ref:Eq-1.1.
 </pre>
 
 <p>
-We can also use org-ref for keeping an index.
+We can also use org-ref for keeping an index but that is for \(\LaTeX\)
+exports. You can look into that if you are interested.
 </p>
-
 
 <p>
 <h1 class='org-ref-bib-h1'>Bibliography</h1>
@@ -555,14 +523,213 @@ We can also use org-ref for keeping an index.
 
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> Theorems and Proofs</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+We can use a little CSS trick and org-special blocks to make our
+theorems, proof etc. look nicely as in a \(\LaTeX\) typesetted 
+book.
+</p>
+
+<p>
+<div id="Thm-3.1"></div>
+</p>
+<div class="theorem">
+<p>
+If an integer \(n\) is greater than 2, then the equation \(a^n + b^n = c^n\)
+has no solutions in non-zero integers \(a\), \(b\), and \(c\). 
+</p>
+
 </div>
+
+<div class="proof">
+<p>
+I have a truly <i>marvelous</i> proof of this proposition that this margin is too
+narrow to contain.
+</p>
+
+</div>
+
+<p>
+Let me show you how I inserted above theorem and proof. Here is the code and
+I will explain it.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #8b008b; text-decoration: underline;"><a href="label:Thm-3.1">label:Thm-3.1</a></span>
+<span style="color: #586e75; font-style: italic;">#+BEGIN_theorem</span>
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$. 
+<span style="color: #586e75; font-style: italic;">#+END_theorem</span>
+
+<span style="color: #586e75; font-style: italic;">#+BEGIN_proof</span>
+I have a truly <span style="font-style: italic;">/marvelous/</span> proof of this proposition that this margin is too
+narrow to contain.
+<span style="color: #586e75; font-style: italic;">#+END_proof</span>
+</pre>
+</div>
+
+<p>
+<code>BEGIN_theorem</code> and <code>BEGIN_proof</code> craetes us a new environment. For \(\LaTeX\)
+output, these will be exported into following \(\LaTeX\) environments
+</p>
+
+<pre class="example">
+\begin{theorem}
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$.
+\end{theorem}
+</pre>
+
+<pre class="example">
+\begin{proof}
+I have a truly \emph{marvelous} proof of this proposition that this
+margin is too narrow to contain.
+\end{proof}
+</pre>
+
+<p>
+For HTML export, we will get different div classes as shown below
+</p>
+
+<pre class="example">
+&lt;div class="theorem"&gt;
+...
+&lt;/div&gt;
+</pre>
+
+<pre class="example">
+&lt;div class="proof"&gt;
+...
+&lt;/div&gt;
+</pre>
+
+<p>
+With this, we can add a couple of CSS code to our main CSS style so that
+we can give theorems, proofs etc. the desired look. Here is the CSS
+additions I used, you can change things to your liking.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-css"><span style="color: #268bd2;">.theorem </span>{
+        <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.theorem:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Theorem. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+<span style="color: #268bd2;">.lemma </span>{
+    <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.lemma:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Lemma. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+<span style="color: #268bd2;">.proof </span>{
+        <span style="color: #268bd2;">margin-top</span>: 1em;
+    <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>: normal;
+        <span style="color: #268bd2;">margin-bottom</span>: 1em;
+        <span style="color: #268bd2;">border</span>:1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 24px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.proof:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Proof. "</span>;
+    <span style="color: #268bd2;">font-style</span>: italic;
+}
+<span style="color: #268bd2;">.proof:after </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"\25FC"</span>;
+    <span style="color: #268bd2;">float</span>:right;
+}
+<span style="color: #268bd2;">.definition </span>{
+    <span style="color: #268bd2;">margin-top</span>: 1em;
+        <span style="color: #268bd2;">display</span>: block;
+    <span style="color: #268bd2;">font-style</span>:normal;
+        <span style="color: #268bd2;">border</span>: 1px solid black;
+        <span style="color: #268bd2;">border-radius</span>: 5px;
+        <span style="color: #268bd2;">padding-top</span>: 10px;
+        <span style="color: #268bd2;">padding-right</span>: 10px;
+        <span style="color: #268bd2;">padding-bottom</span>: 10px;
+        <span style="color: #268bd2;">padding-left</span>: 10px;
+}
+<span style="color: #268bd2;">.definition:before </span>{
+    <span style="color: #268bd2;">content</span>: <span style="color: #2aa198;">"Definition. "</span>;
+    <span style="color: #268bd2;">font-weight</span>: bold;
+    <span style="color: #268bd2;">font-style</span>: normal;
+}
+</pre>
+</div>
+
+<p>
+Noticed at the top how I started my theorem with an org-ref label?
+HTML export is not as good as \(\LaTeX\) when it comes to automatic
+numbering and referencing of things like equations, proofs etc.
+but with a little discipline, we can be quite functional. Here, for
+example, I can refer to my theorem as <a href="#Thm-3.1">Thm-3.1</a>.
+</p>
+
+<p>
+Here is a definition example.
+</p>
+
+<p>
+<div id="Definition-3.1"></div>
+</p>
+<div class="definition">
+<p>
+<b>Uniform Continuity</b>
+</p>
+
+<p>
+Suppose \(D \subset \mathbf{R}^n\) and \(\vec f: D \to R^m\). We say \(\vec f\)
+is \(\textit{uniformly}\) continuous if given any \(\epsilon > 0\), there is a
+single \(\delta > 0\) so that whenever \(\vec y \in B(\vec x, \delta)\), then
+\(\vec f(\vec y) \in B(\vec f(\vec x), \epsilon)\), for all \(\vec x \in D\).
+</p>
+
+<p>
+Please note that the above inequality must hold for all \(\vec x\) in the
+domain and \(\delta\) depends only on  \(\epsilon\).
+</p>
+
+</div>
+
+<p>
+We also have support for lemmas and that's all for now!
+</p>
+</div>
+</div>
+
 <div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4"><span class="section-number-2">4</span> Publishing to Github Pages</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Burak Kaan Copur</p>
-<p class="date">Created: 2018-02-22 Thu 14:36</p>
+<p class="date">Created: 2018-02-22 Thu 16:31</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

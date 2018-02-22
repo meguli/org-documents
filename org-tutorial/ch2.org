@@ -53,7 +53,8 @@ we just drop our equations as if we are creating $\LaTeX$ documents.
 I use following header at /main.org/ to achieve this.
 
 #+BEGIN_EXAMPLE
-#+HTML_MATHJAX: align: center indent: 5em tagside: left font: Neo-Euler path: ../MathJax/MathJax.js?config=TeX-AMS_CHTML
+#+HTML_MATHJAX: path: <path-to-MathJax-CDN>
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
 #+END_EXAMPLE
 
 Another thing is to adding figures and images.
@@ -97,7 +98,7 @@ We can cite like cite:Shifrin2004.
 Note that I can recall and refer to a past equation as ref:Eq-1.1.
 #+END_EXAMPLE
 
-We can also use org-ref for keeping an index.
-
+We can also use org-ref for keeping an index but that is for $\LaTeX$
+exports. You can look into that if you are interested.
 
 bibliography:refs.bib

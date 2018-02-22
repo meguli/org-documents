@@ -1,0 +1,159 @@
+We can use a little CSS trick and org-special blocks to make our
+theorems, proof etc. look nicely as in a $\LaTeX$ typesetted 
+book.
+
+label:Thm-3.1
+#+BEGIN_theorem
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$. 
+#+END_theorem
+
+#+BEGIN_proof
+I have a truly /marvelous/ proof of this proposition that this margin is too
+narrow to contain.
+#+END_proof
+
+Let me show you how I inserted above theorem and proof. Here is the code and
+I will explain it.
+
+#+BEGIN_SRC org
+label:Thm-3.1
+#+BEGIN_theorem
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$. 
+#+END_theorem
+
+#+BEGIN_proof
+I have a truly /marvelous/ proof of this proposition that this margin is too
+narrow to contain.
+#+END_proof
+#+END_SRC
+
+=BEGIN_theorem= and =BEGIN_proof= craetes us a new environment. For $\LaTeX$
+output, these will be exported into following $\LaTeX$ environments
+
+#+BEGIN_EXAMPLE
+\begin{theorem}
+If an integer $n$ is greater than 2, then the equation $a^n + b^n = c^n$
+has no solutions in non-zero integers $a$, $b$, and $c$.
+\end{theorem}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+\begin{proof}
+I have a truly \emph{marvelous} proof of this proposition that this
+margin is too narrow to contain.
+\end{proof}
+#+END_EXAMPLE
+
+For HTML export, we will get different div classes as shown below
+
+#+BEGIN_EXAMPLE
+<div class="theorem">
+...
+</div>
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+<div class="proof">
+...
+</div>
+#+END_EXAMPLE
+
+With this, we can add a couple of CSS code to our main CSS style so that
+we can give theorems, proofs etc. the desired look. Here is the CSS
+additions I used, you can change things to your liking.
+
+#+BEGIN_SRC css
+.theorem {
+	margin-top: 1em;
+	display: block;
+    font-style:normal;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.theorem:before {
+    content: "Theorem. ";
+    font-weight: bold;
+    font-style: normal;
+}
+.lemma {
+    margin-top: 1em;
+	display: block;
+    font-style:normal;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.lemma:before {
+    content: "Lemma. ";
+    font-weight: bold;
+    font-style: normal;
+}
+.proof {
+	margin-top: 1em;
+    display: block;
+    font-style: normal;
+	margin-bottom: 1em;
+	border:1px solid black;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 24px;
+	padding-left: 10px;
+}
+.proof:before {
+    content: "Proof. ";
+    font-style: italic;
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+.definition {
+    margin-top: 1em;
+	display: block;
+    font-style:normal;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.definition:before {
+    content: "Definition. ";
+    font-weight: bold;
+    font-style: normal;
+}
+#+END_SRC
+
+Noticed at the top how I started my theorem with an org-ref label?
+HTML export is not as good as $\LaTeX$ when it comes to automatic
+numbering and referencing of things like equations, proofs etc.
+but with a little discipline, we can be quite functional. Here, for
+example, I can refer to my theorem as ref:Thm-3.1.
+
+Here is a definition example.
+
+label:Definition-3.1
+#+BEGIN_definition
+*Uniform Continuity*
+
+Suppose $D \subset \mathbf{R}^n$ and $\vec f: D \to R^m$. We say $\vec f$
+is $\textit{uniformly}$ continuous if given any $\epsilon > 0$, there is a
+single $\delta > 0$ so that whenever $\vec y \in B(\vec x, \delta)$, then
+$\vec f(\vec y) \in B(\vec f(\vec x), \epsilon)$, for all $\vec x \in D$.
+
+Please note that the above inequality must hold for all $\vec x$ in the
+domain and $\delta$ depends only on  $\epsilon$.
+#+END_definition
+
+We also have support for lemmas and that's all for now!
