@@ -1,0 +1,103 @@
+Let's first talk about how to include a link in a document. Here is
+an example [[https://www.google.com][link]]. This can be inserted using
+
+#+BEGIN_EXAMPLE 
+[[https://www.google.com][link]]
+#+END_EXAMPLE
+
+Since I am a programmer, I think I should next talk about including
+source code listings in a document. Org-mode has environments for
+various things and we will also talk later about creating our own
+environments. For source code, we will use /src/ environments. This
+looks like 
+
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC 
+.. SOURCE CODE GOES HERE
+#+END_SRC
+#+END_EXAMPLE
+
+We will follow with an example listing so that you can see. Note
+that syntax highlighting depends on /htmlize/ library and you can
+install this with MELPA package manager of emacs. It should come
+bundled with newer versions of org-mode though.
+
+#+BEGIN_SRC c
+int main()
+{
+    return 0;
+}
+#+END_SRC
+
+These environments we are talking about are also called /special
+blocks/. Another special block is an example block which I am using
+above as 
+
+#+BEGIN_SRC
+#+BEGIN_EXAMPLE 
+[[https://www.google.com][link]]
+#+END_EXAMPLE
+#+END_SRC
+
+when I first talked about links. The next thing we need to be able to
+add into our document is math of course. We will depend on MathJax
+for this and it is actually really easy with org-mode.
+
+label:Eq-1.1
+\begin{align}
+\mathcal{F}(a) &= \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z - a}\,dz\\
+\int_D (\nabla\cdot \mathcal{F})\,dV &=\int_{\partial D}\mathcal{F}\cdot n\, dS
+\end{align}
+
+we just drop our equations as if we are creating $\LaTeX$ documents.
+I use following header at /main.org/ to achieve this.
+
+#+BEGIN_EXAMPLE
+#+HTML_MATHJAX: align: center indent: 5em tagside: left font: Neo-Euler path: ../MathJax/MathJax.js?config=TeX-AMS_CHTML
+#+END_EXAMPLE
+
+Another thing is to adding figures and images.
+
+#+LABEL: fig:maxwell
+#+CAPTION: Demo Picture with Caption
+[[file:./img/maxwell.jpg]] 
+
+and this is how to add it
+
+#+BEGIN_EXAMPLE
+#+LABEL: fig:maxwell
+#+CAPTION: Demo Picture with Caption
+[[file:./img/maxwell.jpg]]
+#+END_EXAMPLE
+
+I put all my images under /./img/ directory relative to the project
+I am working on. We can refer to this image in any place of the
+text using [[fig:maxwell][a link]] by saying
+
+#+BEGIN_EXAMPLE
+[[fig:maxwell][a link]
+#+END_EXAMPLE
+
+Another important thing is being able to cite other people's work
+and we need to install an emacs package called /org-ref/ to achieve
+this. org-ref will let us achieve more than just citations. It is
+also useful in referencing the parts of our documents like the equation
+above.
+
+Now we can cite like cite:Shifrin2004. 
+
+Note that I can recall and refer to a past equation as ref:Eq-1.1.
+And we can put labels and refs to any part of the text. Here is the
+part in the file where we does this.
+
+#+BEGIN_EXAMPLE
+First, we put label:Eq-1.1 to the top of our LaTeX equation.
+We can cite like cite:Shifrin2004. 
+
+Note that I can recall and refer to a past equation as ref:Eq-1.1.
+#+END_EXAMPLE
+
+We can also use org-ref for keeping an index.
+
+
+bibliography:refs.bib

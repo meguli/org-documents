@@ -1,0 +1,80 @@
+For me, org-mode is a document creation system and is the only reason
+I keep using emacs. In this notes, I am going to explain how I use it
+to generate documents like this. And maybe in the future, I will also
+explain how I use it to create LaTeX documents.
+
+Assuming you have emacs installed, you already have org-mode since it
+comes bundled. The next step is making sure that you completed the
+tutorial given at the below link since we are going to focus on publishing
+our documents as a web page:
+
+[[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing to HTML using org-mode]] 
+
+
+Let me now explain each of the related headers at the beginning of the
+main org-mode file. In a project, I mainly call this file /main.org/. 
+
+#+BEGIN_SRC
+#+TITLE:     How I Use Emacs org-mode
+#+AUTHOR:    Burak Kaan \Ccedil opur
+#+LANGUAGE:  en
+#+END_SRC
+
+This in turn, set the title of the document. Names the author as yours
+truly and sets the document language as English. The next header options
+customize the HTML output. They are as follows
+
+#+BEGIN_SRC 
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline path:../org-info.js
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css" />
+#+END_SRC
+
+Before explaining what each of them does, let me talk about the directory
+structure of my work environment. I have a top-level folder like /~/org/.
+Here is what it looks like
+
+#+begin_fundamental
+  |-- ~/org
+  |   |-- ./orgcss
+  |   |-- orginfo.js
+  |   |-- ./org-tutorial
+  |   |-- ...
+  |   |-- ...
+  |   |-- a dir for each project
+#+end_fundamental
+
+/orgcss/ directory contains the CSS files and relevant styling files I use
+for my documents. This is taken from [[https://github.com/gongzhitaao/orgcss][this page]]. In the header
+
+#+BEGIN_SRC 
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css" />
+#+END_SRC
+
+see how I set the CSS file. You can set the directory to your custom CSS
+file that suits your taste. Notice also that I have a Javascript file called
+/orginfo.js/ in my directory. This is used to make sure we can view the web
+page as a GNU Info file and navigate the document as such. For example you
+can press "n" on your keyboard to go to the next section, "b" button for
+returning to previous section, "i" displays the table of contents etc. We
+set this by specifying /view:info/. The other headers
+
+#+BEGIN_SRC 
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+#+END_SRC
+
+set where you will go if you click on HOME and UP links on a web page in
+this info-like document. 
+
+This is followed by some LaTeX headers. After this, in the /main.org/ file,
+I just list each chapter and include that chapter's own file by using
+
+#+BEGIN_SRC 
+#+INCLUDE: ch1.org
+#+END_SRC
+
+This will import all the contents of /ch1.org/ into main file. With this,
+when I say /M-x org-html-export-to-html/, I will get a /main.html/ file
+that includes all of my document. 

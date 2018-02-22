@@ -1,0 +1,23 @@
+#+TITLE:     How I Use Emacs org-mode
+#+AUTHOR:    Burak Kaan Copur
+#+LANGUAGE:  en
+
+#+OPTIONS: tex:t
+#+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline path:../org-info.js
+#+LINK_HOME: http://burakkaancopur.info
+#+LINK_UP: http://burakkaancopur.info
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
+#+HTML_MATHJAX: path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+
+* Initial Setup
+
+#+INCLUDE: ch1.org
+
+* How to Enrich the HTML Output?
+
+#+INCLUDE: ch2.org
+
+* Theorems and Proofs 
+* Publishing to Github Pages
+
