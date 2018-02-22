@@ -1,1 +1,38 @@
-This is the first blog post.
+#+TITLE: Hello, Blog!
+#+AUTHOR: Burak Kaan Çopur
+
+#+HTML_DOCTYPE: html5
+
+#+INFOJS_OPT: view:showall toc:t ltoc:nil button:t mouse:underline
+#+INFOJS_OPT: path:../org-info.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../orgcss/org.css"/>
+#+HTML_MATHJAX: path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+
+For the first blog post on this site, I am just going to salute you.
+Also, I want this blog post to act as a tutorial for me on what to
+publish and how to publish it using org-mode. On this [][repo] where I
+keep my /~/org/ folder basically, you can see a directory called
+/blog/. This have a directory structure like 
+
+#+BEGIN_EXAMPLE
+  |---blog
+  |   |-- ./2018
+  |   |-- index.org
+  |   |-- additional_files...
+  |   |-- ...
+  |   |-- ...
+  |   |-- a dir for each year
+#+END_EXAMPLE
+
+I write a blog post as an org file. This post's file lies in dir
+/2018/, as an example. In the main /index.org/ file, I basically
+link a blog post after I write one. This becomes /index.html/ 
+when I call /org-publish/.
+
+To celebrate, let me also share with you a piece of music that I
+have been listening to a lot lately. This is microtonal jazz by
+Philipp Gerschlauer. I don't know how he is playing the sax in
+that tuning but it is great.
+
+[[yt:PZwDTB4-zNQ]]

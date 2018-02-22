@@ -286,3 +286,10 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
         padding: 30px;
     }
 }
+
+iframe {
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+    padding: 1em
+}
+
