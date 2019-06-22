@@ -1,18 +1,15 @@
-#+TITLE: Blog
+#+TITLE:     Notes on C++ Programming
 #+AUTHOR:    Burak Kaan Copur
 #+LANGUAGE:  en
 
-#+HTML_HEAD: <style type="text/css"> <!--/*--><![CDATA[/*><!--*/ .title { display: none; } /*]]>*/--> </style>
-
 #+INFOJS_OPT: view:info toc:t ltoc:nil button:t mouse:underline
-#+INFOJS_OPT: path:../org-info.js
+#+INFOJS_OPT: path:../../org-info.js
 #+LINK_HOME: http://meguli.github.io
 #+LINK_UP: http://meguli.github.io
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../orgcss/org.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../orgcss/org.css"/>
 #+HTML_MATHJAX: path: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
 #+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
 
+* Addresses, Values and Types
 
-#+INCLUDE: "masthead.html" export html
-
-[[file:2018/hello-blog.org][Hello, Blog!]]
+#+INCLUDE: ch1.org

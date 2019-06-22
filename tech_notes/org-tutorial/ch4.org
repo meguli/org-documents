@@ -1,0 +1,36 @@
+On an org file belonging to my project, I just execute /M-x org-publish-all/ and
+HTML output, which is the one I care, appears in my /~/public_html/ directory.
+Of course, to make this work, I have to add following to my /.emacs/ file
+
+#+BEGIN_SRC elisp
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+		("org-notes"
+			:base-directory "~/org/"
+			:base-extension "org"
+			:publishing-directory "~/public_html/"
+			:recursive t
+			:publishing-function org-html-publish-to-html
+			:headline-levels 4             ; Just the default for this project.
+			:auto-preamble t
+		)
+		("org-static"
+			:base-directory "~/org/"
+			:base-extension "css\\|js\\|php\\|jpg\\|png"
+			:publishing-directory "~/public_html/"
+			:recursive t
+			:publishing-function org-publish-attachment
+		)
+		("org" :components ("org-notes" "org-static"))
+	))
+#+END_SRC
+
+In reality, it is also quite easy to also produce LaTeX documents from my org setup.
+Just call /M-x org-latex-export-to-pdf/ and you are good to go. Still, you might have
+to tweak your settings to get the look and feel you want. Mine is heavily focused
+on HTML output.
+
+Now that all my website lives under /~/public_html/, it is just a matter of setting
+up a Github pages repo pointing to this directory and pushing to remote as things 
+change.

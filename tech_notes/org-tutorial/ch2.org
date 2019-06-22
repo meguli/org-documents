@@ -79,11 +79,48 @@ text using [[fig:maxwell][a link]] by saying
 [[fig:maxwell][a link]
 #+END_EXAMPLE
 
+It is also possible to embed Youtube videos. First, we have to add following 
+to our /.emacs/ file.
+
+#+BEGIN_SRC 
+(defvar yt-iframe-format
+  ;; You may want to change your width and height.
+  (concat "<iframe width=\"440\""
+          " height=\"335\""
+          " src=\"https://www.youtube.com/embed/%s\""
+          " frameborder=\"0\""
+          " allowfullscreen>%s</iframe>"))
+
+(org-add-link-type
+ "yt"
+ (lambda (handle)
+   (browse-url
+    (concat "https://www.youtube.com/embed/"
+            handle)))
+ (lambda (path desc backend)
+   (cl-case backend
+     (html (format yt-iframe-format
+                   path (or desc "")))
+     (latex (format "\href{%s}{%s}"
+                    path (or desc "video"))))))
+#+END_SRC
+
+Then, add youtube videos using
+
+#+BEGIN_EXAMPLE
+[[yt:PZwDTB4-zNQ]]
+#+END_EXAMPLE
+
+where /PZwDTB4-zNQ/ is the video part of a youtube link. Resulting video looks
+like the one below
+
+[[yt:PZwDTB4-zNQ]]
+
 Another important thing is being able to cite other people's work
 and we need to install an emacs package called /org-ref/ to achieve
-this. org-ref will let us achieve more than just citations. It is
-also useful in referencing the parts of our documents like the equation
-above.
+this and require it in or .emacs file.  org-ref will let us achieve more
+than just citations. It is also useful in referencing the parts of our documents 
+like the equation above.
 
 Now we can cite like cite:Shifrin2004. 
 

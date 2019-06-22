@@ -1,0 +1,6 @@
+In C++, an *object* is a region of memory. Since we can consider memory as an array
+of bytes, an object is a subarray in this memory. An object has:
+
+- an *address* pointing to its initial byte
+- some content, 1s and 0s living in this region of memory, which is object's *value*
+- and a *type* which tells us how to interpret and use the value of the object
