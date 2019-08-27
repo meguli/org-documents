@@ -1,5 +1,5 @@
 On an org file belonging to my project, I just execute /M-x org-publish-all/ and
-HTML output, which is the one I care, appears in my /~/public_html/ directory.
+HTML output, which is the one I care, appears in my /~/public\under{}html/ directory.
 Of course, to make this work, I have to add following to my /.emacs/ file
 
 #+BEGIN_SRC elisp
@@ -31,6 +31,6 @@ Just call /M-x org-latex-export-to-pdf/ and you are good to go. Still, you might
 to tweak your settings to get the look and feel you want. Mine is heavily focused
 on HTML output.
 
-Now that all my website lives under /~/public_html/, it is just a matter of setting
+Now that all my website lives under /~/public\under{}html/, it is just a matter of setting
 up a Github pages repo pointing to this directory and pushing to remote as things 
 change.

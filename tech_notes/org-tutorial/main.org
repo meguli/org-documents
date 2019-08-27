@@ -24,3 +24,5 @@
 
 * Publishing to Github Pages
 
+#+INCLUDE: ch4.org 
+

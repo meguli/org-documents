@@ -118,7 +118,7 @@ like the one below
 
 Another important thing is being able to cite other people's work
 and we need to install an emacs package called /org-ref/ to achieve
-this and require it in or .emacs file.  org-ref will let us achieve more
+this and require it in our /.emacs/ file.  org-ref will let us achieve more
 than just citations. It is also useful in referencing the parts of our documents 
 like the equation above.
 
