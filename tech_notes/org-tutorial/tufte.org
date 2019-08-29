@@ -30,7 +30,7 @@ int main() {
 
 and indeed, Maxwell's equations are a miracle of higher calculus.
 
-#+LABEL: fig:maxwell
+#+LABEL: fig:maxwell2
 #+CAPTION: Demo Picture with Caption
 [[file:./img/maxwell.jpg]]
 #+END_marginnote
