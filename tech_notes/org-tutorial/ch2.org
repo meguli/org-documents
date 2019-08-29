@@ -137,5 +137,3 @@ Note that I can recall and refer to a past equation as ref:Eq-1.1.
 
 We can also use org-ref for keeping an index but that is for $\LaTeX$
 exports. You can look into that if you are interested.
-
-bibliography:refs.bib

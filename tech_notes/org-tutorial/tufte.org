@@ -1,0 +1,115 @@
+#+BEGIN_epigraph 
+#+BEGIN_QUOTE
+Begin at the beginning, the King said, very gravely, and go on till you come 
+to the end: then stop.
+
+Alices Adventures in Wonderland, Lewis Carroll
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+There is truth, my boy. But the doctrine you desire, absolute perfect dogma 
+that alone provides wisdom, does not exist. Nor should you long for a perfect 
+doctrine, my friend rather, you should long for perfection in yourself. The 
+deity is within you, not in ideas and books. Truth is lived not taught.
+
+The Glassbead Game, Herman Hesse
+#+END_QUOTE
+#+END_epigraph
+
+#+BEGIN_marginnote
+Please devote some time into understanding Fundamental Theorem as it occurs in
+many places throughout higher calculus, in different forms.
+
+#+BEGIN_SRC cpp
+#include <cstdio>
+
+int main() {
+    std::printf("%s\n", "hello, world!");
+}
+#+END_SRC
+
+and indeed, Maxwell's equations are a miracle of higher calculus.
+
+#+LABEL: fig:maxwell
+#+CAPTION: Demo Picture with Caption
+[[file:./img/maxwell.jpg]]
+#+END_marginnote
+
+/tufte-css/ is the CSS part of the Edward Tufte inspired typesetting efforts, 
+you can find their demo easily on the web. We are going to use parts of it in 
+our documents. In fact, epigraph above is an example of it. Here is how we 
+embed it.
+
+#+BEGIN_EXAMPLE
+#+BEGIN_epigraph 
+#+BEGIN_QUOTE
+Begin at the beginning, the King said, very gravely, and go on till you come 
+to the end: then stop.
+
+Alices Adventures in Wonderland, Lewis Carroll
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+There is truth, my boy. But the doctrine you desire, absolute perfect dogma 
+that alone provides wisdom, does not exist. Nor should you long for a perfect 
+doctrine, my friend rather, you should long for perfection in yourself. The 
+deity is within you, not in ideas and books. Truth is lived not taught.
+
+The Glassbead Game, Herman Hesse
+#+END_QUOTE
+#+END_epigraph
+#+END_EXAMPLE
+
+Basically, we organize things in a way that "epigraph" HTML class will be filled 
+with /blockquote/ HTML tags. Our modified /tufte-css/ file will handle the rest 
+for us. Other strong feature of Tufte documents are margin notes. On the left, 
+at the beginning of the page, you should see a margin note about 
+/Fundamental Theorem of Calculus./ The way to add this again similar to other 
+custom /begin - end/ environments.
+
+#+BEGIN_EXAMPLE
+#+BEGIN_marginnote
+Please devote some time into understanding Fundamental Theorem as it occurs in
+many places throughout higher calculus, in different forms.
+
+#+BEGIN_SRC cpp
+#include <cstdio>
+
+int main() {
+    std::printf("%s\n", "hello, world!");
+}
+#+END_SRC
+
+and indeed, Maxwell's equations are a miracle of higher calculus.
+
+#+LABEL: fig:maxwell
+#+CAPTION: James Clark Maxwell
+[[file:./img/maxwell.jpg]]
+#+END_marginnote
+#+END_EXAMPLE
+
+and note that you can add source code, latex, figures etc. into your margin notes
+just by nesting environments. Since it is too important to use screen space, 
+including margins, effectively in Tufte's style, we have another method of adding
+a figure called /fullwidth/ figure. This spans the entire screen. Below you can
+see a /fullwidth/ figure;
+
+#+BEGIN_fullwidth
+#+LABEL: fig:fullwidth
+#+CAPTION: A full width data table
+[[file:./img/tufte-full.png]]
+#+END_fullwidth
+
+and to add this, as you can guess by now, we do;
+
+#+BEGIN_EXAMPLE
+#+BEGIN_fullwidth
+#+LABEL: fig:fullwidth
+#+CAPTION: A full width data table
+[[file:./img/tufte-full.png]]
+#+END_fullwidth
+#+END_EXAMPLE
+
+Some of the figures and sources used in this chapter are taken from 
+cite:RMarkdown2018 and cite:Tufte2001, amazing set of typesetting and note taking
+resources they are.
