@@ -31,7 +31,7 @@ int main() {
 and indeed, Maxwell's equations are a miracle of higher calculus.
 
 #+LABEL: fig:maxwell2
-#+CAPTION: Demo Picture with Caption
+#+CAPTION: James Clark Maxwell
 [[file:./img/maxwell.jpg]]
 #+END_marginnote
 
@@ -76,7 +76,7 @@ many places throughout higher calculus, in different forms.
 #include <cstdio>
 
 int main() {
-    std::printf("%s\n", "hello, world!");
+    std::printf("%s\n", "hello, calculus!");
 }
 #+END_SRC
 
