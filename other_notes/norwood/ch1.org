@@ -1,0 +1,14 @@
+You want to learn a language, you need to start from the alphabet. Norwegian
+uses a modified Latin alphabet, with additions like æ, ø, å. For pronounciation,
+we need to get familiar with individual letters.
+
+#+BEGIN_EXAMPLE
+a {a},  b {be}, c {se}, d {de}, e {ie}, f {eff}, g {ge}
+h {ho},  i {i}, j {ye}, k {ko}, l {ell}, m {emm}, n {enn}
+o {u},  p {pe}, q {kü}, r {eağr}, s {ess}, t {te}, u {ü}
+v {ve},  w {dobbeltve}, x {eks}, y {i}, z {sett}, 
+æ {ae}, ø {ö}, å {o}
+#+END_EXAMPLE
+
+Pronounciation is mainly rot memorization but after alphabet, there are couple
+of basic rules that can guide us. 
